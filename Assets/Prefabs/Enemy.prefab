@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5188317113180631601}
   - component: {fileID: 7580488398462432341}
   - component: {fileID: 5352978448122813771}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   moveSpeed: 3
+  playerTargetChance: 0.3
 --- !u!54 &5352978448122813771
 Rigidbody:
   m_ObjectHideFlags: 0
