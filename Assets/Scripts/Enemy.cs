@@ -8,4 +8,10 @@ public class Enemy : MonoBehaviour
     {
         transform.position += Vector3.down * moveSpeed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
+    }
 }
