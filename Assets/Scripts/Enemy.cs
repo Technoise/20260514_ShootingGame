@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float playerTargetChance = 0.3f;
+    [SerializeField] private GameObject explosionEffectPrefab;
 
     private Vector3 moveDirection = Vector3.down;
 
@@ -19,8 +20,20 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        CreateExplosionEffect();
+
         Destroy(collision.gameObject);
         Destroy(gameObject);
+    }
+
+    private void CreateExplosionEffect()
+    {
+        if (explosionEffectPrefab == null)
+        {
+            return;
+        }
+
+        Instantiate(explosionEffectPrefab, transform.position, transform.rotation);
     }
 
     private void SetMoveDirection()
