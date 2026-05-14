@@ -20,10 +20,21 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        AddScore();
         CreateExplosionEffect();
 
         Destroy(collision.gameObject);
         Destroy(gameObject);
+    }
+
+    private void AddScore()
+    {
+        ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+
+        if (scoreManager != null)
+        {
+            scoreManager.AddScore();
+        }
     }
 
     private void CreateExplosionEffect()
